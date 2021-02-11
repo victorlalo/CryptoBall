@@ -16,7 +16,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
-
     }
 
     public override void OnConnectedToMaster()
@@ -43,6 +42,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
         OnPlayerJoined?.Invoke();
         Debug.Log("Joined!");
+    }
+
+    public override void OnLeftRoom()
+    {
+        base.OnLeftRoom();
+        // If you are the host, transfer canvas to another player that is still in the room
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

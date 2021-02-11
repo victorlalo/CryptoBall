@@ -571,15 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: scriptsToIgnore.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
-      propertyPath: scriptsToIgnore.Array.data[0]
-      value: 
-      objectReference: {fileID: 232952572, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
-    - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
-      propertyPath: scriptsToIgnore.Array.data[1]
-      value: 
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5546558013556257796, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_RootOrder
@@ -632,10 +624,6 @@ PrefabInstance:
     - target: {fileID: 5546558013556258303, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5595455019814118760, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
-      propertyPath: m_Constraints
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
