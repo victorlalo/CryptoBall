@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Photon.Pun;
 
-public class NetworkCanvas : MonoBehaviour
+public class NetworkCanvas : MonoBehaviourPunCallbacks, IPunObservable
 {
     [SerializeField] Text numPlayersText;
     [SerializeField] Text helloMessage;
@@ -24,6 +25,7 @@ public class NetworkCanvas : MonoBehaviour
         {
             activateMessage();
         }
+        setNumPlayers();
     }
 
     public void setNumPlayers()
@@ -43,5 +45,17 @@ public class NetworkCanvas : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         helloMessage.gameObject.SetActive(false);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(playerCount);
+        }
+        else
+        {
+            playerCount = (int)stream.ReceiveNext();
+        }
     }
 }

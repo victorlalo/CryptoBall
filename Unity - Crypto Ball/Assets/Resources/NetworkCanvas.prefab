@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayersText: {fileID: 1000678035439089748}
   helloMessage: {fileID: 1000678036457666161}
+  playerCount: 0
 --- !u!114 &7908809332522693293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,10 +132,11 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  observableSearch: 2
-  Synchronization: 3
+  observableSearch: 0
+  Synchronization: 1
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 1000678035410448201}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

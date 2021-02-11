@@ -463,10 +463,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1000678035410448200, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -555,18 +551,6 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7908809332522693293, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
-      propertyPath: Synchronization
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908809332522693293, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
-      propertyPath: observableSearch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7908809332522693293, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
-      propertyPath: ObservedComponents.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
 --- !u!1001 &5546558013386483460
@@ -576,6 +560,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 232952572, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+      propertyPath: scriptsToIgnore.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+      propertyPath: scriptsToIgnore.Array.data[0]
+      value: 
+      objectReference: {fileID: 232952572, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+    - target: {fileID: 2072532347328735921, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+      propertyPath: scriptsToIgnore.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5546558013556257796, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_RootOrder
       value: 6
