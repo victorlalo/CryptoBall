@@ -8,12 +8,18 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
     public GameObject canvasPrefab;
     private GameObject spawnedPlayer;
 
-    //public int playerIndex;
-    
+    //public int playerIndex
+
+    private void Start()
+    {
+        
+    }
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
         spawnedPlayer = PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
+        
     }
 
     public override void OnLeftRoom()

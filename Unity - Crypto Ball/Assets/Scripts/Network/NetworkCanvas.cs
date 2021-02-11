@@ -2,25 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class NetworkCanvas : MonoBehaviour
 {
     [SerializeField] Text numPlayersText;
     [SerializeField] Text helloMessage;
+    int playerCount = 0;
 
-    void Start()
+    public static event Action OnSpaceBarPressed;
+
+    void Awake()
     {
         helloMessage.gameObject.SetActive(false);
+        NetworkManager.OnPlayerJoined += setNumPlayers;
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            activateMessage();
+        }
     }
 
-    public void setNumPlayers(int players)
+    public void setNumPlayers()
     {
-        numPlayersText.text = "Number of Players: " + players.ToString();
+        playerCount++;
+        numPlayersText.text = "Number of Players: " + playerCount.ToString();
     }
 
     public void activateMessage()
