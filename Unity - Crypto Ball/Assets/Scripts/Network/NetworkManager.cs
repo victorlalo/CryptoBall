@@ -39,6 +39,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        OnPlayerJoined?.Invoke();
         Debug.Log(newPlayer.NickName + " joined the lobby!");
         base.OnPlayerEnteredRoom(newPlayer);
     }

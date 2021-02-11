@@ -8,9 +8,9 @@ public class NetworkCanvas : MonoBehaviour
 {
     [SerializeField] Text numPlayersText;
     [SerializeField] Text helloMessage;
-    int playerCount = 0;
+    public int playerCount = 0;
 
-    public static event Action OnSpaceBarPressed;
+    //public static event Action OnSpaceBarPressed;
 
     void Awake()
     {

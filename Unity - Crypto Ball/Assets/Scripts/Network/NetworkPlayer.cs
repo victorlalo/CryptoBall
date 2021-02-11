@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class NetworkPlayer : MonoBehaviourPunCallbacks
 {
-    public GameObject canvasPrefab;
+    public GameObject playerPrefab;
     private GameObject spawnedPlayer;
 
     //public int playerIndex
@@ -18,7 +18,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        spawnedPlayer = PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
+        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, transform.position + new Vector3(Random.Range(-10, 10), Random.Range(-10,10)), transform.rotation);
         
     }
 
