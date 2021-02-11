@@ -12,7 +12,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnJoinedRoom()

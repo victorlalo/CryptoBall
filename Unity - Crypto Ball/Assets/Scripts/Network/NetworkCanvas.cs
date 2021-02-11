@@ -46,7 +46,7 @@ public class NetworkCanvas : MonoBehaviourPunCallbacks, IPunObservable
 
     public void activateMessage()
     {
-        StopCoroutine(DeactivateMessage());
+        StopCoroutine(DeactivateMessage()); 
         helloMessage.gameObject.SetActive(true);
         StartCoroutine(DeactivateMessage());
     }

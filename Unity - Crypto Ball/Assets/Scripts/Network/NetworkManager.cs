@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using System;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] byte maxPlayers = 10;
     [SerializeField] GameObject networkCanvasPrefab;
 
-    public static NetworkManager Instance;
+    public GameObject playerPrefab;
+    private GameObject spawnedPlayer;
+
+    //public static NetworkManager Instance;
 
     private void Awake()
     {
-        if (Instance != null) {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        //if (Instance != null) {
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
     }
 
     void Start()
@@ -39,25 +41,25 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.CreateRoom("CryptoBallNetwork", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("CryptoBallNetwork", roomOptions, TypedLobby.Default);
     }
 
     public override void OnCreatedRoom()
     {
-        base.OnCreatedRoom();
         PhotonNetwork.Instantiate(networkCanvasPrefab.name, transform.position, transform.rotation);
     }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        //OnPlayerJoined?.Invoke();
+        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, transform.position + new Vector3(Random.Range(-7, 7), Random.Range(-4, 4)), transform.rotation);
         Debug.Log("Joined!");
     }
 
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
+        PhotonNetwork.Destroy(spawnedPlayer);
         // If you are the host, transfer canvas to another player that is still in the room
     }
 

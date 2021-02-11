@@ -2,22 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class PlayerMove : MonoBehaviour//, IPunObservable
+public class PlayerMove : MonoBehaviourPun//, IPunObservable
 {
     float speed = 8f;
-    Rigidbody rb;
+    //Rigidbody rb;
     Vector3 position;
 
-    PhotonView photonView;
+    public static Color[] playerColors =
+    {
+        Color.red,
+        Color.blue,
+        Color.yellow,
+        Color.green,
+        Color.white,
+        Color.black
+    };
+
+    //PhotonView photonView;
     //[SerializeField] MonoBehaviour[] scriptsToIgnore;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        GetComponent<MeshRenderer>().material.color = Color.HSVToRGB(Random.Range(0f, 1f), 1f, 1f);
+        //rb = GetComponent<Rigidbody>();
+        Debug.Log(photonView.OwnerActorNr);
+        GetComponentInChildren<MeshRenderer>().material.color = playerColors[photonView.OwnerActorNr - 1];
 
-        photonView = GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
+        if (!photonView.IsMine)
+        {
+            this.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +47,7 @@ public class PlayerMove : MonoBehaviour//, IPunObservable
         float horiz = Input.GetAxisRaw("Horizontal");
         float vert = Input.GetAxisRaw("Vertical");
 
-        rb.MovePosition(rb.position + new Vector3(horiz, vert) * Time.fixedDeltaTime * speed);
+        transform.position = transform.position + new Vector3(horiz, vert) * Time.fixedDeltaTime * speed;
     }
 
     //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
