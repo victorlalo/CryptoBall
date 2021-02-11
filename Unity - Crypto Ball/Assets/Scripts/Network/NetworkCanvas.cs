@@ -16,7 +16,13 @@ public class NetworkCanvas : MonoBehaviourPunCallbacks, IPunObservable
     void Awake()
     {
         helloMessage.gameObject.SetActive(false);
-        NetworkManager.OnPlayerJoined += setNumPlayers;
+        NetworkManager.OnPlayerJoined += AddPlayer;
+        NetworkManager.OnPlayerLeft += SubtractPlayer;
+    }
+
+    private void Start()
+    {
+        setNumPlayers();
     }
 
     void Update()
@@ -25,13 +31,23 @@ public class NetworkCanvas : MonoBehaviourPunCallbacks, IPunObservable
         {
             activateMessage();
         }
-        setNumPlayers();
     }
 
     public void setNumPlayers()
     {
-        playerCount++;
         numPlayersText.text = "Number of Players: " + playerCount.ToString();
+    }
+
+    void AddPlayer()
+    {
+        playerCount++;
+        setNumPlayers();
+    }
+
+    void SubtractPlayer()
+    {
+        playerCount--;
+        setNumPlayers();
     }
 
     public void activateMessage()

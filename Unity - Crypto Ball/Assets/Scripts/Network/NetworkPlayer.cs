@@ -18,7 +18,7 @@ public class NetworkPlayer : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, transform.position + new Vector3(Random.Range(-10, 10), Random.Range(-10,10)), transform.rotation);
+        spawnedPlayer = PhotonNetwork.Instantiate(playerPrefab.name, transform.position + new Vector3(Random.Range(-7, 7), Random.Range(-4,4)), transform.rotation);
         
     }
 

@@ -10,6 +10,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] byte maxPlayers = 10;
 
     public static event Action OnPlayerJoined;
+    public static event Action OnPlayerLeft;
+    [SerializeField] GameObject canvasPrefab;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
+        PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
         OnPlayerJoined?.Invoke();
         Debug.Log("Joined!");
     }
@@ -42,5 +45,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         OnPlayerJoined?.Invoke();
         Debug.Log(newPlayer.NickName + " joined the lobby!");
         base.OnPlayerEnteredRoom(newPlayer);
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+        OnPlayerLeft?.Invoke();
     }
 }

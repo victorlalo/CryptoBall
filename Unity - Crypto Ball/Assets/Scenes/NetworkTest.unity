@@ -438,6 +438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 10
+  canvasPrefab: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
 --- !u!4 &1783404965
 Transform:
   m_ObjectHideFlags: 0
@@ -462,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
       propertyPath: m_Name
       value: NetworkCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000678035410448200, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
       propertyPath: m_Pivot.x
@@ -582,11 +587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5546558013556257796, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5546558013556257796, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 5546558013556257796, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -626,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5546558013556258303, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
