@@ -32,10 +32,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom("CryptoBallNetwork", roomOptions, TypedLobby.Default);
     }
 
+    public override void OnCreatedRoom()
+    {
+        base.OnCreatedRoom();
+        PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
+    }
+
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
         OnPlayerJoined?.Invoke();
         Debug.Log("Joined!");
     }
