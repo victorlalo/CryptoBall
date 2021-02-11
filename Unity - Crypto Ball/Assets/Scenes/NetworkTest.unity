@@ -233,6 +233,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &530576367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5546558013556258303, guid: f3de79dc354580a448f03b2b20ac960e, type: 3}
+  m_PrefabInstance: {fileID: 5546558013386483460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &530576368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530576367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1458911343
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayers: 10
-  canvasPrefab: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
+  networkCanvasPrefab: {fileID: 1000678035410448196, guid: 6cc786e09cc62ad4b9153dba92fd7fab, type: 3}
 --- !u!4 &1783404965
 Transform:
   m_ObjectHideFlags: 0

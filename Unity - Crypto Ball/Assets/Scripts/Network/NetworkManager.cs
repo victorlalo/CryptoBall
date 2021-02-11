@@ -8,10 +8,21 @@ using System;
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] byte maxPlayers = 10;
+    [SerializeField] GameObject networkCanvasPrefab;
 
-    public static event Action OnPlayerJoined;
-    public static event Action OnPlayerLeft;
-    [SerializeField] GameObject canvasPrefab;
+    public static NetworkManager Instance;
+
+    private void Awake()
+    {
+        if (Instance != null) {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -28,19 +39,19 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.JoinOrCreateRoom("CryptoBallNetwork", roomOptions, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("CryptoBallNetwork", roomOptions, TypedLobby.Default);
     }
 
     public override void OnCreatedRoom()
     {
         base.OnCreatedRoom();
-        PhotonNetwork.Instantiate(canvasPrefab.name, transform.position, transform.rotation);
+        PhotonNetwork.Instantiate(networkCanvasPrefab.name, transform.position, transform.rotation);
     }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        OnPlayerJoined?.Invoke();
+        //OnPlayerJoined?.Invoke();
         Debug.Log("Joined!");
     }
 
@@ -52,7 +63,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        OnPlayerJoined?.Invoke();
+        //OnPlayerJoined?.Invoke();
         Debug.Log(newPlayer.NickName + " joined the lobby!");
         base.OnPlayerEnteredRoom(newPlayer);
     }
@@ -60,6 +71,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-        OnPlayerLeft?.Invoke();
+        //OnPlayerLeft?.Invoke();
     }
 }

@@ -117,6 +117,7 @@ MonoBehaviour:
   numPlayersText: {fileID: 1000678035439089748}
   helloMessage: {fileID: 1000678036457666161}
   playerCount: 0
+  helloMessageActive: 0
 --- !u!114 &7908809332522693293
 MonoBehaviour:
   m_ObjectHideFlags: 0
