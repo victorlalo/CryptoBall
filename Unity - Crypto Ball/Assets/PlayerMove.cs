@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMove : MonoBehaviour//, IPunObservable
+public class PlayerMove : MonoBehaviour, IPunObservable
 {
     float speed = 10f;
     Rigidbody rb;
@@ -31,15 +31,15 @@ public class PlayerMove : MonoBehaviour//, IPunObservable
         }
     }
 
-    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    //{
-    //    if (stream.IsWriting)
-    //    {
-    //        stream.SendNext(rb.position);
-    //    }
-    //    else
-    //    {
-    //        rb.position = (Vector3)stream.ReceiveNext();
-    //    }
-    //}
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(rb.position);
+        }
+        else
+        {
+            rb.position = (Vector3)stream.ReceiveNext();
+        }
+    }
 }
