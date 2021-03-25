@@ -56,6 +56,7 @@ function render(){
 
 // call all update functions from here
 function update(){
+  scoreboard.update();
   redTeam.forEach(player => player.update());
   blueTeam.forEach(player => player.update());
 

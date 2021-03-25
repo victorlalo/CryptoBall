@@ -31,7 +31,16 @@ class Scoreboard{
         // timer
         textSize(75);
         //text(this.time.toString(), windowWidth/2, this.posY + 40);
-        text("00:00", windowWidth/2, this.posY + 30);
+        let timeTextMin = int(this.time / 60).toString();
+        let timeTextSec = int(this.time % 60).toString();
+        if (timeTextMin.length < 2){
+            timeTextMin = "0"+timeTextMin;
+        }
+        if (timeTextSec.length < 2){
+            timeTextSec = "0"+timeTextSec;
+        }
+
+        text(timeTextMin + ":" + timeTextSec, windowWidth/2, this.posY + 30);
     }
 
     updateScore(team){
@@ -39,7 +48,7 @@ class Scoreboard{
     }
 
     update(){
-        this.time += this.game_speed;
+        this.time += this.game_speed * deltaTime/1000;
 
         if (this.time > 45 && !this.halftime){
             this.halftime = true;
