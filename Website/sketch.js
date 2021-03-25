@@ -2,18 +2,22 @@ let pitch;
 let redTeam = [];
 let blueTeam = [];
 let ball;
+let scoreboard;
+let newscaster;
 
-const PLAYER_SIZE = 22;
-const BALL_SIZE = 25;
-const PITCH_WIDTH = 650;
-const PITCH_HEIGHT = 400;
+const PLAYER_SIZE = 20;
+const BALL_SIZE = 20;
+const PITCH_WIDTH = 600;
+const PITCH_HEIGHT = 325;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   ellipseMode(CENTER);
   rectMode(CENTER);
 
-  pitch = new Pitch(PITCH_WIDTH, PITCH_HEIGHT, windowWidth/2, windowHeight/2);
+  scoreboard = new Scoreboard();
+  pitch = new Pitch(PITCH_WIDTH, PITCH_HEIGHT, windowWidth/2, scoreboard.height + 60 + PITCH_HEIGHT/2);
+  newscaster = new Newscaster();
   //frameRate(2);
 
   redTeam.push(new Player(PITCH_WIDTH*.08, PITCH_HEIGHT/2, PLAYER_SIZE, 'red', 'keeper', 0, 0, 1, 0));
@@ -28,7 +32,8 @@ function setup() {
   blueTeam.push(new Player(PITCH_WIDTH*.65, PITCH_HEIGHT*.45, PLAYER_SIZE, 'blue', 'striker', 0, 0, 6, 0));
   blueTeam.push(new Player(PITCH_WIDTH*.62, PITCH_HEIGHT*.75, PLAYER_SIZE, 'blue', 'striker', 0, 0, 7, 0));
 
-  ball = new Ball('images/ball.png');
+  ball = new Ball('images/ball.png', PITCH_WIDTH/2, PITCH_HEIGHT/2);
+  
 }
 
 function draw() {
@@ -41,6 +46,10 @@ function draw() {
 function render(){
   pitch.render();
   ball.render();
+  scoreboard.render();
+  newscaster.render();
+
+
   redTeam.forEach(player => player.render());
   blueTeam.forEach(player => player.render());
 }

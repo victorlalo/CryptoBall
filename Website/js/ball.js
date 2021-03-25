@@ -1,8 +1,8 @@
 
 class Ball{
-    constructor(spriteDir){
-        this.posX = width/2 - BALL_SIZE/2;
-        this.posY = height/2 - BALL_SIZE/2;
+    constructor(spriteDir, x, y){
+        this.posX = pitch.bounds.x1 + x - BALL_SIZE/2;
+        this.posY = pitch.bounds.y1 + y - BALL_SIZE/2;
         this.possessor = null;
         this.sprite = loadImage(spriteDir);
     }
