@@ -34,10 +34,10 @@ class Scoreboard{
         let timeTextMin = int(this.time / 60).toString();
         let timeTextSec = int(this.time % 60).toString();
         if (timeTextMin.length < 2){
-            timeTextMin = "0"+timeTextMin;
+            timeTextMin = "0" + timeTextMin;
         }
         if (timeTextSec.length < 2){
-            timeTextSec = "0"+timeTextSec;
+            timeTextSec = "0" + timeTextSec;
         }
 
         text(timeTextMin + ":" + timeTextSec, windowWidth/2, this.posY + 30);
